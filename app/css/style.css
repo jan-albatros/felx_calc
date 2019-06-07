@@ -1,20 +1,65 @@
-/* Stylesheet for Calc App */
-
-.calc_box {
-  display: flex;
-  background-color: #f2f2f2;
-  justify-content: center;
+/* for output */
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular-webfont.woff") format("woff");
 }
 
-.calc_box > div {
+.flex_calc {
+  font: 100% Open Sans, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* background-color: #f2f2f2;*/
+  justify-content: center;
+  width: 20em;
+  margin: 0 auto;
+}
 
-  background-color: #ff751a;
-  width: 3em;
-  margin: 0.5em;
+.flex_calc div {
+  width: 100%;
   text-align: center;
-  line-height: 2em;
-  font-size: 1.5em;
+  line-height: 2.4em;
+  font-size: 1.4em;
   color: white;
+}
 
+.flex_calc .row {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px #636363 solid;
+}
 
-} 
+.flex_calc .double {
+  width: 200% !important;
+}
+
+.flex_calc #disp_hist,
+.flex_calc #disp_output {
+  width: 85% !important;
+  background-color: #29363b;
+  text-align: right !important;
+  padding-right: 15%;
+}
+.flex_calc #disp_hist {
+  color: #999;
+  padding-top: 1em;
+  line-height: 1.5em;
+  font-size: 1.8em;
+}
+
+.flex_calc #disp_output {
+  font-size: 4em;
+  line-height: 1.5em;
+  padding-bottom: 0.7em;
+}
+
+.flex_calc .col1 {
+  background-color: #ec475c;
+}
+
+.flex_calc .col2 {
+  background-color: #f7ba86;
+}
+
+.flex_calc .col3 {
+  background-color: #f6827a;
+}
