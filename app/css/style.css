@@ -1,11 +1,26 @@
+/* Stylesheet for Calculator App (for FEDT) */
+/* main window size */
+/* general line / button height  */
+/* general font size */
+/* output font size */
+/* display right padding */
+/* display right width (should sum to 100 with padding) */
+/* color of the display / output */
+/* color of the buttons group 1 (specials) */
+/* color of the buttons group 2 (operators) */
+/* color of the buttons group 3 (numerals) */
+/* for all except output */
+@font-face {
+  font-family: "Open Sans Light";
+  src: url("../fonts/OpenSans-Light-webfont.woff") format("woff");
+}
 /* for output */
 @font-face {
   font-family: "Open Sans";
   src: url("../fonts/OpenSans-Regular-webfont.woff") format("woff");
 }
-
 .flex_calc {
-  font: 100% Open Sans, Helvetica, sans-serif;
+  font: 100% Open Sans Light, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
   /* background-color: #f2f2f2;*/
@@ -13,7 +28,6 @@
   width: 20em;
   margin: 0 auto;
 }
-
 .flex_calc div {
   width: 100%;
   text-align: center;
@@ -21,17 +35,14 @@
   font-size: 1.4em;
   color: white;
 }
-
 .flex_calc .row {
   display: flex;
   flex-direction: row;
   border-top: 1px #636363 solid;
 }
-
 .flex_calc .double {
   width: 200% !important;
 }
-
 .flex_calc #disp_hist,
 .flex_calc #disp_output {
   width: 85% !important;
@@ -45,21 +56,35 @@
   line-height: 1.5em;
   font-size: 1.8em;
 }
-
 .flex_calc #disp_output {
   font-size: 4em;
+  font-family: Open Sans, Helvetica, sans-serif;
   line-height: 1.5em;
   padding-bottom: 0.7em;
 }
-
 .flex_calc .col1 {
   background-color: #ec475c;
 }
-
 .flex_calc .col2 {
   background-color: #f7ba86;
 }
-
 .flex_calc .col3 {
   background-color: #f6827a;
+}
+.flex_calc .col1:hover {
+  /*background-color:#ec475cd1;*/
+  background-color: rgba(236, 71, 92, 0.88);
+}
+.flex_calc .col2:hover {
+  /*background-color:#f7ba85b8;*/
+  background-color: rgba(247, 186, 134, 0.88);
+}
+.flex_calc .col3:hover {
+  /*background-color:#f6827ab5;*/
+  background-color: rgba(246, 130, 122, 0.88);
+}
+.flex_calc .col1:hover,
+.flex_calc .col2:hover,
+.flex_calc .col3:hover {
+  cursor: pointer;
 }

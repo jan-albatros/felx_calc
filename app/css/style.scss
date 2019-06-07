@@ -1,0 +1,112 @@
+/* Stylesheet for Calculator App (under FEDT) */
+$widget_width: 20em;  /* main window size */
+$line_height: 2.4em;  /* general line / button height  */
+$font_size: 1.4em;    /* general font size */
+$font_size_out: 4em;  /* output font size */
+$display_pad_right: 15%;  /* display right padding */
+$display_width: 85%;      /* display right width (should sum to 100 with padding) */
+$disp_pad_top: 1em;
+$disp_hist_line_height: 1.5em;
+$disp_hist_font_size: 1.8em;
+$disp_out_line_height: 1.5em;
+$disp_out_padd_bottom: 0.7em;
+$col_display: #29363b;  /* color of the display / output */
+$col_hist: #999;        
+$col1: #ec475c;         /* color of the buttons group 1 (specials) */
+$col2: #f7ba86;         /* color of the buttons group 2 (operators) */
+$col3: #f6827a;         /* color of the buttons group 3 (numerals) */
+
+/* for all except output */
+@font-face {
+  font-family: "Open Sans Light";
+  src: url("../fonts/OpenSans-Light-webfont.woff") format("woff");
+}
+/* for output */
+@font-face {
+  font-family: "Open Sans";
+  src: url("../fonts/OpenSans-Regular-webfont.woff") format("woff");
+}
+
+
+.flex_calc {
+	font: 100% Open Sans Light, Helvetica, sans-serif;
+	display: flex;
+	flex-direction: column;
+	/* background-color: #f2f2f2;*/
+	justify-content: center;
+	width: $widget_width;
+	margin: 0 auto;
+  
+  div {
+    width: 100%;
+    text-align: center;
+    line-height: $line_height;
+    font-size: $font_size;
+    color: white;
+  }
+    
+  .row {
+    display: flex;
+    flex-direction: row;
+    border-top:1px #636363 solid ;
+  }
+  
+  .double {
+    width: 200% !important;
+  }
+  
+  #disp_hist,
+  #disp_output {
+    width: $display_width !important;
+    background-color: $col_display;
+    text-align: right !important;
+    padding-right: $display_pad_right;
+  }
+    
+  #disp_hist{
+  	color: $col_hist;	
+  	padding-top: $disp_pad_top;
+  	line-height: $disp_hist_line_height;
+  	font-size: $disp_hist_font_size;
+  }
+  
+  #disp_output{
+    font-size: $font_size_out;
+  	font-family: Open Sans, Helvetica, sans-serif;
+  	line-height: $disp_out_line_height;
+	  padding-bottom: $disp_out_padd_bottom;
+  }
+  
+  .col1 {
+    background-color: $col1;
+  }
+  .col2 {
+    background-color: $col2;
+  }
+  .col3 {
+    background-color: $col3;
+  }
+    
+  .col1:hover{
+    /*background-color:#ec475cd1;*/
+    background-color:rgba($col1, 0.88);
+  }
+  .col2:hover{
+    /*background-color:#f7ba85b8;*/
+    background-color:rgba($col2, 0.88);
+  }
+  .col3:hover{
+    /*background-color:#f6827ab5;*/
+    background-color:rgba($col3, 0.88);
+  }
+    
+  .col1:hover,
+  .col2:hover,
+  .col3:hover {
+  	cursor: pointer;
+  }
+  
+}
+
+ 
+
