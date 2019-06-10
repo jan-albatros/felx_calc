@@ -126,6 +126,7 @@ window.onload=function(){
 			saveVal(); // save value from display
 			if ( operand1 != null && operand1 != null) {
 				result = calculate(); // calculate 
+				result = result.toLocaleString(); // should work in 2016+ WEb Browsers
 			} else {
 				result = 0;
 			}
