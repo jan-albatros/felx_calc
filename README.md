@@ -6,3 +6,6 @@ Ver. 0.3.
 – Checks for too big numbers;
 – Prints dot ("."), instead of comma (",") sign on display for floats (to be fixed in future ver.);
 
+Ver. 0.1.
+Adds, substracts, multiplies, divides one-digit integer numbers. Resets prints output.
+
