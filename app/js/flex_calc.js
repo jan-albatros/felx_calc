@@ -2,7 +2,6 @@
  *
  *	Adds, substracts, multiplies, divides integer and float numbers up to 8 digits long. Resets prints output.
  *
- *	TO DO: 	d) save result to CSV file (for further processing with PHP).
  *
  */
 
@@ -12,12 +11,11 @@ window.onload=function(){
 
 	/* Set global vars */
 	var result = 0;				// result of the math operation
-	var operand1 = null; 	// first operand
+	var operand1 = null; 		// first operand
 	var operator = null;		// operator +,-,/,%
-	var operand2 = null; 	// second/next operand
-	var memory = 0;				// temp for saving result
-	var output = document.getElementById('disp_output');					// output result for user
-	var hOutput = document.getElementById('disp_hist');					// output result for user
+	var operand2 = null; 		// second/next operand
+	var output = document.getElementById('disp_output');		// output result for user
+	var hOutput = document.getElementById('disp_hist');			// output result for user
 	var cFlag = true;			// "clear output" flag
 	var operandReady = 1;		// which operand is ready to assign new value (1 or 2)
 
@@ -148,9 +146,7 @@ window.onload=function(){
 			console.log('RESET. Result: ' + result);
 		
 		} else if (event.target.matches('#btn_save')) {
-			// Save - Save to memory (to be continued – save to CSV file with IP address, browser agent name and datetime)
-	
-			memory = result;
+			
 			var data = new FormData();
 			data.append('sum', result);
 			
@@ -164,15 +160,8 @@ window.onload=function(){
 			  console.log(`Loaded: ${http.status} ${http.response}`);
 			};
 
-			http.onerror = function() { // only triggers if the request couldn't be made at all
+			http.onerror = function() { 
 			  console.log(`Network Error`);
-			};
-
-			http.onprogress = function(event) { // triggers periodically
-			  // event.loaded - how many bytes downloaded
-			  // event.lengthComputable = true if the server sent Content-Length header
-			  // event.total - total number of bytes (if lengthComputable)
-			  console.log(`Received ${event.loaded} of ${event.total}`);
 			};
 
 			console.log('SAVED. Result saved: ' + result);

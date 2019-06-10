@@ -1,23 +1,22 @@
 <?php
 	// Flex Calc App. Save results lib.
-	//echo "Waiting for request...<br/>";
 	
-
 	if(!empty($_POST)){
 		
 		// Get sum from the HTTP request
 		if (isset($_POST['sum'])){
 			$sum = $_POST['sum'];	
 		}
+		
 		// Get IP
 		if(!empty($_SERVER['HTTP_CLIENT_IP'])){
 	        $ip = $_SERVER['HTTP_CLIENT_IP'];
-	    }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+	    } elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
 	        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-	    }else{
+	    } else {
 	        $ip = $_SERVER['REMOTE_ADDR'];
-	    
 	    }
+
 		// Get date
 	    $date = new DateTime();
 		$date = $date->format('Y-m-d');
@@ -30,15 +29,15 @@
 		// Save to file
 		$fname = "calculations.csv";
 		$file = fopen($fname, 'a');//creates new file
-		//$file = fopen($fname, 'w');//creates new file
 		fwrite($file, $sum."; ".$ip."; ".$date."; ".$browser."\n");
 		fclose($file);
+
 	} else {
-		// Print results in primitive form:
+		// Print results to file
 		$fname = "calculations.csv";
 		/*
 		$fname = "calculations.csv";
-		$file = fopen($fname, 'r');//creates new file
+		$file = fopen($fname, 'r');
 		$string = fread($file, 25000);
 		fclose($file);
 		echo nl2br($string);
@@ -69,6 +68,5 @@
 			fclose($file);	
 		}
 	}
-
 
 ?>
