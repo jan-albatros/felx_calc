@@ -150,8 +150,31 @@ window.onload=function(){
 		} else if (event.target.matches('#btn_save')) {
 			// Save - Save to memory (to be continued – save to CSV file with IP address, browser agent name and datetime)
 	
-			// ...
 			memory = result;
+			var data = new FormData();
+			data.append('sum', result);
+			
+			const url = "php/calculations.php";
+			
+			var http = new XMLHttpRequest();
+			http.open('POST', url, true);
+			http.send(data);
+
+			http.onload = function() {
+			  console.log(`Loaded: ${http.status} ${http.response}`);
+			};
+
+			http.onerror = function() { // only triggers if the request couldn't be made at all
+			  console.log(`Network Error`);
+			};
+
+			http.onprogress = function(event) { // triggers periodically
+			  // event.loaded - how many bytes downloaded
+			  // event.lengthComputable = true if the server sent Content-Length header
+			  // event.total - total number of bytes (if lengthComputable)
+			  console.log(`Received ${event.loaded} of ${event.total}`);
+			};
+
 			console.log('SAVED. Result saved: ' + result);
 		}
 
